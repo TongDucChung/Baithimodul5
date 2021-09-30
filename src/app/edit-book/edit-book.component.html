@@ -1,0 +1,20 @@
+<h1>Create new book</h1>
+<div class="container">
+  <form [formGroup]='formGroup'>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Nhập Tên cuốn sách" formControlName="title">
+      <p *ngIf="!formGroup.get('title')?.valid && formGroup.get('title')?.touched" style="color: red">Tên sách >= 1 ký tự</p>
+    </div>
+    <div class="form-group">
+      <label>Author</label>
+      <input type="text" class="form-control" placeholder="Nhập Tên tác giả"formControlName="author">
+      <p *ngIf="!formGroup.get('author')?.valid && formGroup.get('author')?.touched" style="color: red">Tên tác giả >= 1 ký tự</p>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" placeholder="Nhập mô tả" formControlName="description">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="saveBook()">Submit</button>
+  </form>
+</div>
